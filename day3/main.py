@@ -3,12 +3,14 @@ import math
 
 
 def find_highest_jolt(jolts:list):
+    '''find the highest jolt and index'''
     max_jolt = max(jolts)
     max_jolt_index = jolts.index(max_jolt)
     
     return [max_jolt, max_jolt_index]
 
 def find_jolts(batteries:str):
+    '''find the two highest jolts'''
     jolts = [int(char) for char in batteries]
     highest_number, highest_index = find_highest_jolt(jolts)
     

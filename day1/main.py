@@ -2,6 +2,7 @@ import argparse
 import math
 
 def turn_dial(direction:str, value:int, current_value:int):
+    ''' do the rotations keeping track of full revolutions'''
     # check how many times it would go one revolution
     x_rotations = math.floor(value / 100)
     

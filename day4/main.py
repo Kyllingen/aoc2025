@@ -4,6 +4,7 @@ import math
 positions = [(1,1), (1,0),(1,-1),(0,1), (0,-1), (-1,1),(-1,0), (-1,-1)]
 
 def check_surrounding(x_pos:int, y_pos:int, map:list):
+    ''' search the 8 positions around current index for @ and return count'''
     count = 0
     access = 0
     for i in positions:
@@ -11,7 +12,6 @@ def check_surrounding(x_pos:int, y_pos:int, map:list):
             break
         
         if (x_pos+i[0]) >= 0 and (x_pos+i[0]) < len(map[0]) and (y_pos+i[1]) >= 0 and (y_pos+i[1]) < len(map):
-            print(map[x_pos+i[0]][y_pos+i[1]], x_pos+i[0], y_pos+i[1] )
             marker = map[x_pos+i[0]][y_pos+i[1]]
             if marker == "@":
                 count += 1
@@ -22,12 +22,12 @@ def check_surrounding(x_pos:int, y_pos:int, map:list):
     return access
 
 def traverse_map(map:list):
+    '''iterate through the map'''
     total_access = 0
     x = 0
     y = 0
     for col in map:
         for row in col: 
-            print("NEXT")
             if row == "@":
                 total_access += check_surrounding(x, y, map)
             y += 1
@@ -51,8 +51,7 @@ def main():
     with open(file_path, "r") as f:
         for line in f.readlines():
             map.append( line.strip())
-    
-    print("size", len(map), len(map[0]), map)
+
     total_acess = traverse_map(map)
     print(total_acess)
         

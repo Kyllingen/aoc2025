@@ -4,7 +4,7 @@ import math
 invalid_ids = []
 
 def find_duplicates(id_range:str):
-    
+    '''find duplicates between each part of the range'''
     sum = 0
     start, end = id_range.split("-")
     start = int(start)
@@ -14,10 +14,10 @@ def find_duplicates(id_range:str):
 
         if len(number) % 2 == 0:
             midpoint = int(len(number)/2)
-            print(midpoint)
+            
             first_half = number[:midpoint]
             second_half = number[midpoint:]
-            print(midpoint, " : ", first_half, " - ", second_half)
+            
             if first_half == second_half:
                 invalid_ids.append(i)
                 sum += i
